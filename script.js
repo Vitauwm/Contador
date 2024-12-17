@@ -63,7 +63,75 @@ function calcularTempoJuntos() {
       `;
     }
   }
-  
+  function criarPopup() {
+    // Cria o elemento de popup
+    const popup = document.createElement('div');
+    popup.style.position = 'fixed';
+    popup.style.top = `${Math.random() * 80 + 10}%`; // Posição aleatória na tela
+    popup.style.left = `${Math.random() * 80 + 10}%`;
+    popup.style.width = '200px';
+    popup.style.height = '100px';
+    popup.style.backgroundColor = '#ffcccc';
+    popup.style.color = '#000';
+    popup.style.border = '2px solid #ff6666';
+    popup.style.borderRadius = '10px';
+    popup.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    popup.style.display = 'flex';
+    popup.style.flexDirection = 'column';
+    popup.style.justifyContent = 'center';
+    popup.style.alignItems = 'center';
+    popup.style.zIndex = 9999;
+
+    // Adiciona o texto
+    const texto = document.createElement('p');
+    texto.textContent = 'Casa comigo?';
+    texto.style.margin = '0';
+    texto.style.fontSize = '1.2rem';
+    popup.appendChild(texto);
+
+    // Botões
+    const botaoSim = document.createElement('button');
+    botaoSim.textContent = 'Sim';
+    botaoSim.style.margin = '5px';
+    botaoSim.style.backgroundColor = '#66ff66';
+    botaoSim.style.border = 'none';
+    botaoSim.style.padding = '5px 10px';
+    botaoSim.style.cursor = 'pointer';
+    botaoSim.style.borderRadius = '5px';
+    botaoSim.addEventListener('click', () => {
+        document.body.innerHTML = `
+            <h1 style="text-align: center; margin-top: 50px; color: #ff66cc;">Obrigado por dizer sim! ❤️</h1>
+            <p style="text-align: center; font-size: 1.5rem; color: #333;">A gente aí na lua de mel</p>
+            <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                <img src="https://i.ibb.co/47M7dh6/Imagem-do-Whats-App-de-2024-12-17-s-09-12-03-0a9d9a36.jpg" alt="Imagem 1" style="width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <img src="https://i.ibb.co/RcnrWJz/Imagem-do-Whats-App-de-2024-12-17-s-09-12-03-691a45ff.jpg" alt="Imagem 2" style="width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            </div>
+        `;
+    });
+
+    const botaoNao = document.createElement('button');
+    botaoNao.textContent = 'Não';
+    botaoNao.style.margin = '5px';
+    botaoNao.style.backgroundColor = '#ff6666';
+    botaoNao.style.border = 'none';
+    botaoNao.style.padding = '5px 10px';
+    botaoNao.style.cursor = 'pointer';
+    botaoNao.style.borderRadius = '5px';
+    botaoNao.addEventListener('click', () => {
+        criarPopup(); // Cria um novo popup
+    });
+
+    // Adiciona os botões ao popup
+    popup.appendChild(botaoSim);
+    popup.appendChild(botaoNao);
+
+    // Adiciona o popup ao corpo do documento
+    document.body.appendChild(popup);
+}
+
+// Inicializa o primeiro popup
+criarPopup();
+
   // Atualizações periódicas
   setInterval(calcularTempoJuntos, 1000);
   ajustarTematica();
