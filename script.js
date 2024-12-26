@@ -23,7 +23,7 @@ function ajustarTematica() {
   const title = document.querySelector(".title h1");
 
   // Temática de Natal
-  if (agora.getMonth() === 11 && agora.getDate() === 25) {
+  if (agora.getMonth() === 11 && agora.getDate() === 26) {
     title.textContent = "Feliz Natal, Meu amor!";
     loveText.innerHTML = "<p>Que nosso amor seja tão mágico quanto esta data especial. Feliz Natal, meu amor! 🎄❤️</p>";
     mural.innerHTML = ` 
